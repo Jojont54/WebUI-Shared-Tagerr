@@ -1,0 +1,21 @@
+services:
+  tagarr:
+    build: .
+    container_name: tagarr
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3131}:${PORT:-3131}"
+    environment:
+      PORT: ${PORT:-3131}
+      APP_URL: ${APP_URL:-http://localhost:3131}
+      APP_SECRET: ${APP_SECRET:?Définissez APP_SECRET dans le fichier .env}
+      AUTH_MODE: ${AUTH_MODE:-}
+      AUTH_MOD: ${AUTH_MOD:-}
+      OIDC_ISSUER: ${OIDC_ISSUER:-}
+      OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-}
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:-}
+      OIDC_ADMIN_GROUP: ${OIDC_ADMIN_GROUP:-tagarr-admin}
+      OIDC_SCOPES: ${OIDC_SCOPES:-openid profile email}
+      TZ: ${TZ:-Europe/Paris}
+    volumes:
+      - ./data:/app/data
