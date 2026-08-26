@@ -46,7 +46,9 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .plex-button:hover:not(:disabled) { background: #f5ad37; transform: translateY(-1px); }
 .plex-button:disabled { cursor: wait; opacity: .75; }
 .oidc-button { text-decoration: none; }
-.plex-chevron { display: grid; place-items: center; width: 20px; height: 20px; padding-bottom: 2px; border-radius: 50%; font-size: 25px; font-weight: 400; background: #1a140c; color: #f5a524; }
+.plex-chevron { display: grid; place-items: center; flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%; background: #1a140c; color: #f5a524; }
+.plex-chevron svg { width: 14px; height: 14px; overflow: visible; }
+.plex-chevron path { fill: none; stroke: currentColor; stroke-width: 3.2; stroke-linecap: square; stroke-linejoin: miter; }
 .trust-row { margin-top: 19px; display: flex; align-items: center; justify-content: center; gap: 7px; color: #778192; font-size: 12px; }
 .gate-footer { position: absolute; bottom: 22px; color: #626b79; font-size: 12px; }
 .server-list { display: grid; gap: 10px; }

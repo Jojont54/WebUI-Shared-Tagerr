@@ -107,7 +107,13 @@ function PlexGate({ initialized, onReady }: { initialized: boolean; onReady: () 
                 : 'Connectez le compte propriétaire Plex. Il deviendra le seul administrateur de cette instance.'}
             </p>
             <button className="plex-button" onClick={startPlex} disabled={busy}>
-              {busy ? <Spinner /> : <span className="plex-chevron">›</span>}
+              {busy ? <Spinner /> : (
+                <span className="plex-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="m8.5 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </span>
+              )}
               {busy ? 'En attente de Plex…' : 'Continuer avec Plex'}
             </button>
             <div className="trust-row"><Check size={15} /> Aucun mot de passe Plex n’est stocké par Tagarr</div>
@@ -146,7 +152,6 @@ function OidcGate() {
       <h1>Ravi de vous revoir.</h1>
       <p className="lead">Connectez-vous avec votre compte Authentik pour accéder aux collections et gérer les tags.</p>
       <a className="plex-button oidc-button" href="/api/auth/oidc/login">
-        <span className="plex-chevron">›</span>
         Continuer avec Authentik
       </a>
       <div className="trust-row"><Check size={15} /> Tagarr ne stocke pas votre mot de passe</div>
